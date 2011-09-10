@@ -10,7 +10,6 @@
 # Manually exclude everything else
 !README
 !.mplayer/config
-!.pentadactyl/plugins/pinyin-hint-mod.js
 #
 .ICEauthority
 .Xauthority
