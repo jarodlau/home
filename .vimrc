@@ -1,3 +1,4 @@
+"Sat 10 Sep 2011 06:02:52 PM CST
 " .vimrc
 " See: http://vimdoc.sourceforge.net/htmldoc/options.html for details
 
@@ -82,3 +83,23 @@ syntax on
 if has("autocmd")
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" insert the time with <F2>
+
+imap <F2> <C-R>=strftime("%c")<CR>
+
+" Programe fold
+"set foldmethod=indent
+
+" QuickFix Window Toggle
+com! -bang -nargs=? QFix cal QFixToggle(<bang>0)
+fu! QFixToggle(forced)
+    if exists("g:qfix_win") && a:forced == 0
+        cclose
+        unlet g:qfix_win
+    else
+        copen 10
+        let g:qfix_win = buffnr("$")
+        en
+    endf
+    nn      <leader>q :QFix<cr>

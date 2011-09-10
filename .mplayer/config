@@ -1,5 +1,7 @@
 # Write your default config options here!
-
+# Sat 10 Sep 2011 06:25:27 PM CST
+#
+#
 [default]
 # vdpau设置
 vo=vdpau

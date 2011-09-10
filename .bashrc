@@ -1,4 +1,4 @@
-#
+# Sat 10 Sep 2011 06:34:49 PM CST
 # ~/.bashrc
 #
 export EDITOR="vim"
