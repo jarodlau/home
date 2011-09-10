@@ -1,0 +1,36 @@
+# vim:set et ft=conf fdm=marker sw=4 sts=4 ts=4 nopaste :
+
+# First, ignore everything
+*
+# Dont't ignore dotfile
+!.*
+#.*
+
+
+# Manually exclude everything else
+!README
+
+#
+.ICEauthority
+.Xauthority
+.appcfg_cookies
+.bash_history
+.bash_logout
+.bash_profile
+.cache/
+.esd_auth
+.gitignore~
+.gitk
+.gtk-bookmarks
+.lesshst
+.msmtprc
+.msmtprc~
+.muttrc
+.muttrc~
+.nvidia-settings-rc
+.offlineimaprc
+.offlineimaprc~
+.pentadactylrc~
+.pulse-cookie
+.vimrc~
+.xsession-errors

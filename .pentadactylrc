@@ -1,0 +1,18 @@
+"1.0b7.2 "(created 2011/08/05 11:03:59)"
+
+loadplugins '\.(js|penta)$'
+group user
+command! hl set hlf!
+command! -nargs=* sitesearch exe "t http://www.google.com/search?q=" + encodeURIComponent("<args>") + "&sitesearch=" + window.content.location.hostname
+map -modes=c,i,n,t,v <C-a> <Pass>
+map -modes=c,i,n,t,v <C-c> <Pass>
+map -modes=c,i,t <C-v> <Pass>
+map -modes=c,i,t <C-x> <Pass>
+map -modes=c,i,t <C-z> <Pass>
+map -modes=n h -builtin <count><count><count>gT
+map -modes=n l -builtin <count><count><count>gt
+map -modes=n,v t -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.NEW_TAB}):CommandExMode().open("tabopen ")
+map -modes=n,v o -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.CURRENT_TAB}):CommandExMode().open("open ")
+set guioptions=bCrsT
+
+" vim: set ft=pentadactyl:

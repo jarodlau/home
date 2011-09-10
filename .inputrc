@@ -1,0 +1,10 @@
+$include /etc/inputrc
+
+#Faster completion
+#set show-all-if-ambiguous on
+
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
+# disabling control echo
+#set echo-control-characters off
