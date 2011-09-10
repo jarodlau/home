@@ -9,10 +9,11 @@ map -modes=c,i,n,t,v <C-c> <Pass>
 map -modes=c,i,t <C-v> <Pass>
 map -modes=c,i,t <C-x> <Pass>
 map -modes=c,i,t <C-z> <Pass>
-map -modes=n h -builtin <count><count><count>gT
-map -modes=n l -builtin <count><count><count>gt
+map -modes=n h -builtin <count><count><count><count>gT
+map -modes=n l -builtin <count><count><count><count>gt
 map -modes=n,v t -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.NEW_TAB}):CommandExMode().open("tabopen ")
 map -modes=n,v o -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.CURRENT_TAB}):CommandExMode().open("open ")
+set defsearch=g
 set guioptions=bCrsT
 
 " vim: set ft=pentadactyl:

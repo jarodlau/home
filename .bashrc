@@ -43,6 +43,10 @@ alias grep='grep --color=auto'
 # color less
 export LESS="-R"
 
+# show me the wan ip
+alias myip='curl -s www.123cha.com | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" | head -n 1'
+# the short one
+alias myipshort='curl ifconfig.me'
 ##  colorful ps1
 
 BLUE=`tput setf 1`
