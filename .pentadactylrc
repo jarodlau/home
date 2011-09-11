@@ -1,19 +1,50 @@
 "1.0b7.2 "(created 2011/08/05 11:03:59)"
 
 loadplugins '\.(js|penta)$'
+
+"[ Base ]/*{{{*/
+" [open] autocomplete with search engines,local files,bookmarks
+" History,Search engine suggestions
+set complete=sflbhS
+" default search engine
+set defsearch=g
+" mapleader = <leader>
+set mapleader=','
+" pre/next jumps on steriod
+set previouspattern='上一页','前一页','\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$'
+set nextpattern='下一页','后页','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','下一题'
+" hilhlint find
+set hlfind=1
+" show the "Arch" on the title
+set titlestring="Arch"
+"/*}}}*/
+
+"[ Keybing ]/*{{{*/
+
 group user
-command! hl set hlf!
 command! -nargs=* sitesearch exe "t http://www.google.com/search?q=" + encodeURIComponent("<args>") + "&sitesearch=" + window.content.location.hostname
+
+"ctrl+a,ctrl-c,ctrl-v,ctrl-v,ctrl-z do the samethings as firefox
 map -modes=c,i,n,t,v <C-a> <Pass>
 map -modes=c,i,n,t,v <C-c> <Pass>
 map -modes=c,i,t <C-v> <Pass>
 map -modes=c,i,t <C-x> <Pass>
 map -modes=c,i,t <C-z> <Pass>
+
+" h,(l)go to forward(barkword)tab
 map -modes=n h -builtin <count><count><count><count>gT
 map -modes=n l -builtin <count><count><count><count>gt
+
+" when fucus a text(link) [t]=tabopen google text(link),the [o] same as [t]
 map -modes=n,v t -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.NEW_TAB}):CommandExMode().open("tabopen ")
 map -modes=n,v o -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.CURRENT_TAB}):CommandExMode().open("open ")
-set defsearch=g
-set guioptions=bCrsT
+
+" toggle GUI components
+map <leader>, :toolbartoggle Navigation Toolbar<CR>
+map <leader>. :set go!=B<CR>
+
+" list bookmark tags (use ,o to follow the resolt)
+map <leader>t :bmarks -tags=
+"/*}}}*/
 
 " vim: set ft=pentadactyl:
