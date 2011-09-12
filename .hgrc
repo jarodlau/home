@@ -1,0 +1,7 @@
+[ui]
+username = Jarod Lau <jarodlau@gmail.com>
+editor = vim
+verbose = True
+ssh = ssh -C
+[extensions]
+hgk=
