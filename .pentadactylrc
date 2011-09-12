@@ -40,7 +40,8 @@ map -modes=n,v t -javascript str=util.domToString(buffer.focusedFrame.getSelecti
 map -modes=n,v o -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.CURRENT_TAB}):CommandExMode().open("open ")
 
 " toggle GUI components
-map <leader>, :toolbartoggle Navigation Toolbar<CR>
+"map <leader>, :toolbartoggle Navigation Toolbar<CR>
+map <F2> :toolbartoggle Navigation Toolbar<CR>
 map <leader>. :set go!=B<CR>
 
 " list bookmark tags (use ,o to follow the resolt)

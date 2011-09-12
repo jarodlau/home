@@ -1,5 +1,5 @@
 " 作者相关 {{{
-" DesCRiption: 适合自己使用的vimrc文件，for Linux/Windows, GUI/Console
+" DesCRiption: 适合自己使用的vimrc文件,for Linux/Windows, GUI/Console
 " Last Change: Sun 11 Sep 2011 08:39:53 AM CST
 " Author:      Jarod Lau at jarodlau at gmail dot com
 " Version:     1.0.0
@@ -55,6 +55,8 @@ syntax on
 filetype on
 " 检测文件类型插件
 filetype plugin on
+" 文件格式修改
+filetype indent on
 " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
@@ -353,4 +355,5 @@ endfunction
 
 au filetype php nnoremap <C-F11> :call ExecutePHPScript()<CR>
 au filetype php inoremap <C-F11> <Esc> :call ExecutePHPScript()<CR>
-"au filetype php vnoremap <C-F11> <Esc> :call RunSelectPHPScript()<CR>"}}}
+"au filetype php vnoremap <C-F11> <Esc> :call RunSelectPHPScript()<CR>
+"}}}
