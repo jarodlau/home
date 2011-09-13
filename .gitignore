@@ -36,3 +36,6 @@
 .viminfo
 .vimrc~
 .xsession-errors
+.hg*
+.gnu*
+.bzr*

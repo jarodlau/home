@@ -1,6 +1,7 @@
 "1.0b7.2 "(created 2011/08/05 11:03:59)"
 
 loadplugins '\.(js|penta)$'
+group user
 
 "[ Base ]/*{{{*/
 " [open] autocomplete with search engines,local files,bookmarks
@@ -8,22 +9,21 @@ loadplugins '\.(js|penta)$'
 set complete=sflbhS
 " default search engine
 set defsearch=g
-" mapleader = <leader>
-set mapleader=','
-" pre/next jumps on steriod
+"set newtab=all
 set previouspattern='上一页','前一页','\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$'
 set nextpattern='下一页','后页','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','下一题'
 " hilhlint find
-set hlfind=1
+set hlfind
 " show the "Arch" on the title
 set titlestring="Arch"
 "/*}}}*/
 
 "[ Keybing ]/*{{{*/
 
-group user
 command! -nargs=* sitesearch exe "t http://www.google.com/search?q=" + encodeURIComponent("<args>") + "&sitesearch=" + window.content.location.hostname
 
+" edit rc file in linux
+"cmap <leader>c :!gvim $HOME/.pentadactylrc
 "ctrl+a,ctrl-c,ctrl-v,ctrl-v,ctrl-z do the samethings as firefox
 map -modes=c,i,n,t,v <C-a> <Pass>
 map -modes=c,i,n,t,v <C-c> <Pass>
@@ -39,6 +39,9 @@ map -modes=n l -builtin <count><count><count><count>gt
 map -modes=n,v t -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.NEW_TAB}):CommandExMode().open("tabopen ")
 map -modes=n,v o -javascript str=util.domToString(buffer.focusedFrame.getSelection()); str!=""?dactyl.open(str, {where: dactyl.CURRENT_TAB}):CommandExMode().open("open ")
 
+" mapleader = <leader>
+set mapleader=','
+" pre/next jumps on steriod
 " toggle GUI components
 "map <leader>, :toolbartoggle Navigation Toolbar<CR>
 map <F2> :toolbartoggle Navigation Toolbar<CR>
@@ -46,6 +49,15 @@ map <leader>. :set go!=B<CR>
 
 " list bookmark tags (use ,o to follow the resolt)
 map <leader>t :bmarks -tags=
+"}}}
+
+" PassKeys/*{{{*/
+" passkeys in googmail and reader 
+"set passkeys+=mail.google.com:jk<CR>,gi
+"set passkeys+=www.google.com/reader:jk<CR>,gi
+"set passkeys+='mail\.google\.com':c/jkhnpovuelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
+"set passkeys+='google\.com/reader':jkvnpbumoaAXNOVPJK?gehtl<Return>
+"set passkeys+='github\.com/':s?l<Return>
 "/*}}}*/
 
 " vim: set ft=pentadactyl:

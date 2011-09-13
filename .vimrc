@@ -234,6 +234,8 @@ if has("gui_running")
     set guioptions-=L " 隐藏左侧滚动条
     set guioptions-=r " 隐藏右侧滚动条
     set guioptions-=b " 隐藏底部滚动条
+	colorscheme desert
+	set background=dark
     set showtabline=0 " 隐藏Tab栏
 endif
 
