@@ -11,6 +11,7 @@
 # Manually exclude everything else
 !README
 !.mplayer/config
+!.fonts.conf
 #
 .ICEauthority
 .Xauthority
@@ -39,3 +40,4 @@
 .hg*
 .gnu*
 .bzr*
+.htop*

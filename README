@@ -25,3 +25,47 @@ $git push
 $git rm --cached .viminfo
 #就可以把这个文件的版本控制取消
 
+Archlinux 字体美化+配置  
+
+1，安装字体：
+pacman -S ttf-dejavu
+yaourt -S wqy-microhei
+2，安装补丁：
+yaourt -S cairo-ubuntu libxft-ubuntu freetype2-ubuntu fontconfig-ubuntu
+3，配置文件：~/.fonts.conf
+
+<fontconfig>
+
+<match target="pattern">
+<test qual="any" name="family">
+<string>serif</string>
+</test>
+<edit name="family" mode="prepend" binding="strong">
+<string>DejaVu Serif</string>
+<string>WenQuanYi Micro Hei</string>
+</edit>
+</match>
+
+<match target="pattern">
+<test qual="any" name="family">
+<string>sans-serif</string>
+</test>
+<edit name="family" mode="prepend" binding="strong">
+<string>DejaVu Sans</string>
+<string>WenQuanYi Micro Hei</string>
+</edit>
+</match>
+
+<match target="pattern">
+<test qual="any" name="family">
+<string>monospace</string>
+</test>
+<edit name="family" mode="prepend" binding="strong">
+<string>DejaVu Sans Mono</string>
+<string>WenQuanYi Micro Hei Mono</string>
+</edit>
+</match>
+
+</fontconfig>
+
+//4，网上流传的通用字体配置文件：http://www.linuxsir.org/bbs/thread339541.html
