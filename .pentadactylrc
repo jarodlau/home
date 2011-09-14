@@ -10,8 +10,8 @@ set complete=sflbhS
 " default search engine
 set defsearch=g
 "set newtab=all
-set previouspattern='上一页','前一页','\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$'
-set nextpattern='下一页','后页','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','下一题'
+"set previouspattern='上一页','前一页','\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$'
+"set nextpattern='下一页','后页','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','下一题'
 " hilhlint find
 set hlfind
 " show the "Arch" on the title

@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/jarodlau/.offlineimap'
-let g:netrw_dirhist_2='/home/jarodlau/.pentadactyl'
-let g:netrw_dirhist_3='/home/jarodlau/.pentadactyl/info'
-let g:netrw_dirhist_4='/home/jarodlau/.pentadactyl/info/default'
-let g:netrw_dirhist_5='/home/jarodlau/.pentadactyl/info'
-let g:netrw_dirhist_6='/home/jarodlau/.pentadactyl'
-let g:netrw_dirhist_7='/home/jarodlau'
-let g:netrw_dirhist_8='/home/jarodlau/.fontconfig'
+let g:netrw_dirhist_cnt =0

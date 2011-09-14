@@ -11,7 +11,7 @@
 # Manually exclude everything else
 !README
 !.mplayer/config
-!.fonts.conf
+.fonts.conf
 #
 .ICEauthority
 .Xauthority
