@@ -149,7 +149,8 @@ function! AppendModeline()
 " 解决自动换行格式下, 如高度在折行之后超过窗口高度结果这一行看不到的问题
 set display=lastline
 " 设定配色方案
-"colorscheme molokai
+colorscheme desert
+set background=dark
 " 设置在状态行显示的信息
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]\ %c:%l/%L%)
 
@@ -234,9 +235,9 @@ if has("gui_running")
     set guioptions-=L " 隐藏左侧滚动条
     set guioptions-=r " 隐藏右侧滚动条
     set guioptions-=b " 隐藏底部滚动条
-	colorscheme desert
+	colorscheme torte
 	set background=dark
-    set showtabline=0 " 隐藏Tab栏
+    set showtabline=1 " 隐藏Tab栏
 endif
 
 "编辑vim配置文件
