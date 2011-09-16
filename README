@@ -10,7 +10,7 @@ $git commit -a -m "发生的事情"
 #
 #
 #然后链接github服务器
-$git remode add origin git@github.com:jarodlau/home.git
+$git remote add origin git@github.com:jarodlau/home.git
 $git push -u origin master
 #
 #以后当你修改了文件就可以直接先察看你修改了那些文件
