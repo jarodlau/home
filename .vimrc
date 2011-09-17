@@ -362,3 +362,30 @@ au filetype php nnoremap <C-F11> :call ExecutePHPScript()<CR>
 au filetype php inoremap <C-F11> <Esc> :call ExecutePHPScript()<CR>
 "au filetype php vnoremap <C-F11> <Esc> :call RunSelectPHPScript()<CR>
 "}}}
+
+" vimwiki 设定"{{{
+"
+if has ('unix')
+let g:vimwiki__use_mouse=1
+" 设定一些vimwiki默认的目录
+let g:vimwiki_list=[{'path':'~/vimwiki/',
+			\'path_html':'~/vimwiki/html/',
+			\'html_header':'~/vimwiki/template/header.tpl',}]
+else
+endif
+"vimwiki默认的快捷键:
+"
+"<leader>ww-打开默认的wiki主页
+",wt-新的标签页打开默认的wiki主页
+",ws-选择打开一个wiki主页
+",wd-删除你所在的wikiword页面
+",wr-重命名你所在的wikiword页面
+"ENTER-在当前页面新建新的wikiword页面
+"Shift-Enter-新建一个wikipage,并在新的分割窗口中显示出来
+"Ctrl-Enter-新建一个wikipage,并在新的垂直分割窗口显示出来
+"
+"Vimwiki输入命令:
+":Vimwiki2HTML-将当前的wiki页面转换为html格式
+":VimwikiALL2THMLL-将所有的wiki页面转换为html格式
+"
+"}}}
