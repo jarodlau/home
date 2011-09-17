@@ -15,9 +15,9 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " 在vim文件中保存光标位置
 " Make Vim restore cursor position in files
 if has("autocmd")
-    au BufReadPost * 
-                \if line("'\"") > 1 && line("'\"") <= line("$") |
-                \exe "normal! g`\"" | endif
+	au BufReadPost * 
+				\if line("'\"") > 1 && line("'\"") <= line("$") |
+				\exe "normal! g`\"" | endif
 endif
 
 " [ Base 基本]"{{{
@@ -77,11 +77,11 @@ set nocursorline
 set nobackup
 " 设定undo到文件分为win和*nux(linux,unix)2种情况
 if has("vms")
-    set undodir=c:\Windows\Temp
+	set undodir=c:\Windows\Temp
 else
-    "把undo历史保存在文件里,这样undo不会因为vim的关闭而丢失
-    set undofile
-    set undodir=~/.tmp/undo
+	"把undo历史保存在文件里,这样undo不会因为vim的关闭而丢失
+	set undofile
+	set undodir=~/.tmp/undo
 endif
 " 自动切换当前目录为当前文件所在的目录
 set autochdir
@@ -134,23 +134,20 @@ set modeline
 " 自动添加modeline函数
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
-	" files.
+" files.
 function! AppendModeline()
 	let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
-			\ &tabstop, &shiftwidth, &textwidth)
+				\ &tabstop, &shiftwidth, &textwidth)
 	"let l:modeline = substitute(&commentstring, "%s", l:modeline,
 	"		)
 	call append(line("$"), l:modeline)
-	endfunction
-	" 快捷键为 .ml ,ml
-	nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+endfunction
+" 快捷键为 .ml ,ml
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 "}}}
 
 " 解决自动换行格式下, 如高度在折行之后超过窗口高度结果这一行看不到的问题
 set display=lastline
-" 设定配色方案
-colorscheme desert
-set background=dark
 " 设置在状态行显示的信息
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]\ %c:%l/%L%)
 
@@ -230,32 +227,37 @@ vnoremap <S-Del> d"+P
 set foldexpr=1
 
 if has("gui_running")
-    set guioptions-=m " 隐藏菜单栏
-    set guioptions-=T " 隐藏工具栏
-    set guioptions-=L " 隐藏左侧滚动条
-    set guioptions-=r " 隐藏右侧滚动条
-    set guioptions-=b " 隐藏底部滚动条
+	set guioptions-=m " 隐藏菜单栏
+	set guioptions-=T " 隐藏工具栏
+	set guioptions-=L " 隐藏左侧滚动条
+	set guioptions-=r " 隐藏右侧滚动条
+	set guioptions-=b " 隐藏底部滚动条
 	colorscheme torte
 	set background=dark
-    set showtabline=1 " 隐藏Tab栏
+	set showtabline=1 " 隐藏Tab栏
+else
+	" 设定配色方案
+	colorscheme desert
+	set background=dark
+
 endif
 
-"编辑vim配置文件
+"编辑vim配置文件(unix和win32通用)
 if has("unix")
-    set fileformats=unix,dos,mac
-    nmap <leader>e :tabnew $HOME/.vimrc<cr>
-    let $VIMFILES = $HOME."/.vim"
+	set fileformats=unix,dos,mac
+	nmap <leader>e :tabnew $HOME/.vimrc<cr>
+	let $VIMFILES = $HOME."/.vim"
 else
-    set fileformats=dos,unix,mac
-    nmap <leader>e :tabnew $VIM/_vimrc<cr>
-    let $VIMFILES = $VIM."/vimfiles"
+	set fileformats=dos,unix,mac
+	nmap <leader>e :tabnew $VIM/_vimrc<cr>
+	let $VIMFILES = $VIM."/vimfiles"
 endif
 
 " Alt-Space is System menu
 if has("gui")
-  noremap <m-space> :simalt ~<cr>
-  inoremap <m-space> <c-o>:simalt ~<cr>
-  cnoremap <m-space> <c-c>:simalt ~<cr>
+	noremap <m-space> :simalt ~<cr>
+	inoremap <m-space> <c-o>:simalt ~<cr>
+	cnoremap <m-space> <c-c>:simalt ~<cr>
 endif
 
 " 设定doc文档目录
@@ -318,42 +320,42 @@ autocmd! FileType * exec "set dict+=$VIMFILES/dict/".&ft.".dic"
 
 "Check the syntax of a PHP file
 function! CheckPHPSyntax()
-    if &filetype != 'php'
-        echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
-        return
-    endif
-    setlocal makeprg=php\ -l\ -n\ -d\ html_errors=off\ %
-    "setlocal makeprg=php\ -l\ -n\ %
-    setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-    echohl WarningMsg | echo 'Syntax checking output:' | echohl None
+	if &filetype != 'php'
+		echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
+		return
+	endif
+	setlocal makeprg=php\ -l\ -n\ -d\ html_errors=off\ %
+	"setlocal makeprg=php\ -l\ -n\ %
+	setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+	echohl WarningMsg | echo 'Syntax checking output:' | echohl None
 
-    if &modified == 1
-        silent write
-    endif
-    silent make
-    clist
+	if &modified == 1
+		silent write
+	endif
+	silent make
+	clist
 endfunction
 
 au filetype php map <F11> :call CheckPHPSyntax()<CR>
 
 "Run a PHP Script
 function! ExecutePHPScript()
-    if &filetype != 'php'
-        echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
-        return
-    endif
-    setlocal makeprg=php\ -f\ %
-    setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-    echohl WarningMsg | echo 'Execution output:' | echohl None
-    if &modified == 1
-        silent write
-    endif
-    silent make
-    clist
+	if &filetype != 'php'
+		echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
+		return
+	endif
+	setlocal makeprg=php\ -f\ %
+	setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+	echohl WarningMsg | echo 'Execution output:' | echohl None
+	if &modified == 1
+		silent write
+	endif
+	silent make
+	clist
 endfunction
 
 "function! RunSelectPHPScript()
-    "'<,'>w !php
+"'<,'>w !php
 "endfunction
 
 au filetype php nnoremap <C-F11> :call ExecutePHPScript()<CR>
