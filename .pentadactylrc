@@ -46,6 +46,9 @@ set mapleader=','
 "map <leader>, :toolbartoggle Navigation Toolbar<CR>
 map <F2> :toolbartoggle Navigation Toolbar<CR>
 map <leader>. :set go!=B<CR>
+"map res    noremap <leader>r :restart<cr>
+noremap <leader>a :addons<cr>
+noremap <leader>d :downloads<cr>
 
 " list bookmark tags (use ,o to follow the resolt)
 map <leader>t :bmarks -tags=

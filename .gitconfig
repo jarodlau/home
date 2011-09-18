@@ -4,3 +4,7 @@
 [github]
 	user = jarodlau
 	token = f0f4d9a52ff498b26994ade8a41b8e3b
+[merge]
+	tool = vimdiff
+[core]
+	editor = vim
