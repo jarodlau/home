@@ -40,9 +40,9 @@ vbell_msg "   Wuff  ----  Wuff!!  "
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # 这是配置那个tab bar
-# hardstatus alwayslastline
-# hardstatus string "%{=b}%{b}%-w%{.BW}%10>[%n %t]%{-}%+w%< %=%{G}%C%A, %Y-%m-%d"
-caption always "%{=u kC} %= %-w%L>%{=b G}[:%n %t:]%{-}%52<%+w %L=" termcapinfo xterm|rxvt ti@:te@
+hardstatus alwayslastline
+hardstatus string "%{=b}%{b}%-w%{.BW}%10>[%n %t]%{-}%+w%< %=%{G}%C%A, %Y-%m-%d"
+#caption always "%{=u kC} %= %-w%L>%{=b G}[:%n %t:]%{-}%52<%+w %L=" termcapinfo xterm|rxvt ti@:te@
 # screen里面的所有进程退出，screen就自动退出
 autodetach on # default: on
 # 退出vim/nano之后自动刷新屏幕

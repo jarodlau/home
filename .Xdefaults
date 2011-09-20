@@ -1,0 +1,86 @@
+!! DPI setting
+! vim: fdm=marker
+
+
+!! RXVT setting /*{{{*/
+!! Color
+!URxvt.background:black
+URxvt.background: [0]#000000
+!URxvt.foreground:gray60
+!URxvt.foreground:white
+URxvt.foreground: #ffffff
+!URxvt.geometry: 85x30+180+200
+URxvt.colorBD:yellow
+URxvt.colorUL:green
+URxvt.cursorColor:red3
+URxvt.color0:black
+URxvt.color1:red3
+URxvt.color2:springgreen
+URxvt.color3:wheat3
+URxvt.color4:navy
+URxvt.color5:magenta4
+URxvt.color6:steelblue1
+URxvt.color7:gray85
+URxvt.color8:gray10
+URxvt.color9:orangered2
+URxvt.color10:chartreuse3
+URxvt.color11:lightgoldenrod2
+URxvt.color12:skyblue1
+URxvt.color13:pink1
+URxvt.color14:lightblue1
+URxvt.underlineColor: yellow
+!urxvt typical
+URxvt.cutchars: "`\"()';@?=,*<>[]{|}"
+!Scroll
+URxvt.scrollBar: true
+URxvt.scrollBar_right: true
+URxvt.scrollBar_floating: true
+URxvt.scrollstyle: plain
+URxvt.saveLines: 8192
+!滚屏设置
+URxvt.mouseWheelScrollPage:true
+URxvt.scrollTtyoutput: False
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+!cursor blink
+URxvt.cursorBlink:true
+!边框
+URxvt.borderLess: false
+!fonts
+URxvt.font: \
+    xft:DejaVu Sans Mono:size=8, \
+    xft:WenQuanYi MicroHei Mono:pixelsize=12
+URxvt.boldfont: \
+    xft:DejaVu Sans Mono:size=8, \
+    xft:WenQuanYi MicroHei Mono:pixelsize=12
+!Xft.dpi:96
+!URxvt.font:xft:WenQuanYi Micro Hei Mono:size=10:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:size=9:style=Regular:antialias=true
+!URxvt.boldfont:xft:WenQuanYi Micro Hei Mono:size=10:style=BOld:antialias=true,xft:WenQuanYi Micro Hei Mono:size=9:style=Bold:antialias=true
+!URxvt.font:xft:Dejavu Sans Mono-10,xft:WenQuanYi Bitmap Song-10
+!URxvt.boldFont:xft:Dejavu Sans Mono-10:Bold,xft:WenQuanYi Bitmap Song-10:Bold
+
+!italicFont and boldItalicFont undefined
+!URxvt.font: xft:Luxi Mono:regular:antialias=True:pixelsize=15,
+!URxvt.font: xft:Monaco:medium:autohint=True:size=10, \
+!                xft:DejaVu Sans Mono:book:autohint=True:size=10, \
+!                xft:wenquanyi bitmap song:medium:pixelsize=15:antialias=True
+!URxvt.boldFont: xft:Luxi Mono:bold:antialias=True:pixelsize=15,
+!URxvt.boldFont: xft:Monaco:bold:autohint=True:size=10, \
+!                xft:DejaVu Sans Mono:bold:autohint=True:size=10, \
+!                xft:wenquanyi bitmap song:bold:pixelsize=15:antialias=True
+
+
+!Input Method
+URxvt.inputMethod: ibus
+!URxvt.preeditType: OverTheSpot
+!URxvt.imFont: WenQuanYi Bitmap Song
+!Open URLs in firefox tabbar
+!!支持tab
+! tab切换:shift+left/shift+right
+! 移动tab:ctrl+left/ctrl+right
+! 新建tab:shift+down
+Rxvt.perl-ext-common:  default,matcher,tabbed
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1
+
+/*}}}*/
