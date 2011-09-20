@@ -263,6 +263,7 @@ endif
 " 设定doc文档目录
 let helptags=$VIMFILES."/doc"
 set helplang=cn
+
 "set nobomb
 
 " {{{全文搜索选中的文字
@@ -365,14 +366,38 @@ au filetype php inoremap <C-F11> <Esc> :call ExecutePHPScript()<CR>
 
 " vimwiki 设定"{{{
 "
-if has ('unix')
-let g:vimwiki__use_mouse=1
+"if has ('unix')
 " 设定一些vimwiki默认的目录
-let g:vimwiki_list=[{'path':'~/vimwiki/',
-			\'path_html':'~/vimwiki/html/',
-			\'html_header':'~/vimwiki/template/header.tpl',}]
-else
-endif
+let g:vimwiki_list=[{'path': '~/vimwiki/',
+			\'path_html': '~/vimwiki/html/',
+			\'template_path': '~/vimwiki/template',
+			\'template_default': 'template',
+			\'template_ext': '.html',
+			\'diary_link_count': 5}]
+"else
+"endif
+" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
+let g:vimwiki_camel_case = 0
+
+" 标记为完成的 checklist 项目会有特别的颜色
+let g:vimwiki_hl_cb_checked = 1
+
+" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
+" let g:vimwiki_menu = ''
+
+" 是否开启按语法折叠  会让文件比较慢
+"let g:vimwiki_folding = 1
+
+" 是否在计算字串长度时用特别考虑中文字符
+let g:vimwiki_CJK_length = 1
+
+" 详见下文...
+" let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
+
+" F4设定为转换当前wiki为html并打开浏览器观看
+noremap <S-F4> :VimwikiALL2HTML<cr>
+noremap <F4> :Vimwiki2HTMLBrowse<cr>
+
 "vimwiki默认的快捷键:
 "
 "<leader>ww-打开默认的wiki主页
@@ -389,3 +414,10 @@ endif
 ":VimwikiALL2THMLL-将所有的wiki页面转换为html格式
 "
 "}}}
+
+" Canlendan相关设定 "{{{
+
+"F8调用 canlendar 日历插件
+nnoremap <F8> :Calendar<cr>
+"}}}
+
