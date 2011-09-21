@@ -3,6 +3,10 @@
 
 ! xft dpi
 Xft.dpi: 112
+Xft.hinging: 1
+Xft.hintstyle: hintslight
+Xft.antialias: 1
+Xft.rgba: rgb
 
 !! RXVT setting /*{{{*/
 !! Color
