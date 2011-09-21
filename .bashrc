@@ -11,6 +11,9 @@ alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
 
+# Reattach screen if possible,otherwise start a new session
+alias screen='screen -RD'
+
 # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 alias pacmir='sudo pacman -Syy'
 alias pacup='sudo pacman -Syu'

@@ -1,34 +1,59 @@
-!! DPI setting
 ! vim: fdm=marker
+! 修改了这个文件,必须$xrdb .Xdefaults让配置生效
 
+! xft dpi
+Xft.dpi: 112
 
 !! RXVT setting /*{{{*/
 !! Color
 !URxvt.background:black
-URxvt.background: [0]#000000
-!URxvt.foreground:gray60
 !URxvt.foreground:white
-URxvt.foreground: #ffffff
-!URxvt.geometry: 85x30+180+200
-URxvt.colorBD:yellow
-URxvt.colorUL:green
-URxvt.cursorColor:red3
-URxvt.color0:black
-URxvt.color1:red3
-URxvt.color2:springgreen
-URxvt.color3:wheat3
-URxvt.color4:navy
-URxvt.color5:magenta4
-URxvt.color6:steelblue1
-URxvt.color7:gray85
-URxvt.color8:gray10
-URxvt.color9:orangered2
-URxvt.color10:chartreuse3
-URxvt.color11:lightgoldenrod2
-URxvt.color12:skyblue1
-URxvt.color13:pink1
-URxvt.color14:lightblue1
-URxvt.underlineColor: yellow
+!!颜色设置
+URxvt.depth:32
+!! 透明效果  无用
+!!Rxvt.transparent:true
+!!Rxvt.shading:30
+!!中括号内数表示透明度
+!URxvt.background: [0]#000000
+!URxvt.foreground:  #ffffff
+URxvt.background:       #000000
+URxvt.foreground:       gray90
+URxvt.color7:           gray90
+URxvt.colorBD:          #ffffff
+URxvt.cursorColor:      #e0e080
+URxvt.throughColor:     #8080f0
+URxvt.highlightColor:   #f0f0f0
+!URxvt.colorBD:Gray95
+!URxvt.colorUL:Green
+!URxvt.color1:Red2
+!URxvt.color3:white
+!URxvt.color4:RoyalBlue
+!URxvt.color5:Magenta2
+!URxvt.color8:Gray50
+!URxvt.color10:Green2
+!URxvt.color12:DodgerBlue
+!URxvt.color14:Cyan2
+!URxvt.color15:Gray95
+!!URxvt.geometry: 85x30+180+200
+!URxvt.colorBD:yellow
+!URxvt.colorUL:green
+!URxvt.cursorColor:red3
+!URxvt.color0:black
+!URxvt.color1:red3
+!URxvt.color2:springgreen
+!URxvt.color3:wheat3
+!URxvt.color4:navy
+!URxvt.color5:magenta4
+!URxvt.color6:steelblue1
+!URxvt.color7:gray85
+!URxvt.color8:gray10
+!URxvt.color9:orangered2
+!URxvt.color10:chartreuse3
+!URxvt.color11:lightgoldenrod2
+!URxvt.color12:skyblue1
+!URxvt.color13:pink1
+!URxvt.color14:lightblue1
+!URxvt.underlineColor: yellow
 !urxvt typical
 URxvt.cutchars: "`\"()';@?=,*<>[]{|}"
 !Scroll
@@ -48,27 +73,11 @@ URxvt.cursorBlink:true
 URxvt.borderLess: false
 !fonts
 URxvt.font: \
-    xft:DejaVu Sans Mono:size=8, \
-    xft:WenQuanYi MicroHei Mono:pixelsize=12
+xft:DejaVu Sans Mono:size=8, \
+xft:WenQuanYi MicroHei Mono:pixelsize=12
 URxvt.boldfont: \
-    xft:DejaVu Sans Mono:size=8, \
-    xft:WenQuanYi MicroHei Mono:pixelsize=12
-!Xft.dpi:96
-!URxvt.font:xft:WenQuanYi Micro Hei Mono:size=10:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:size=9:style=Regular:antialias=true
-!URxvt.boldfont:xft:WenQuanYi Micro Hei Mono:size=10:style=BOld:antialias=true,xft:WenQuanYi Micro Hei Mono:size=9:style=Bold:antialias=true
-!URxvt.font:xft:Dejavu Sans Mono-10,xft:WenQuanYi Bitmap Song-10
-!URxvt.boldFont:xft:Dejavu Sans Mono-10:Bold,xft:WenQuanYi Bitmap Song-10:Bold
-
-!italicFont and boldItalicFont undefined
-!URxvt.font: xft:Luxi Mono:regular:antialias=True:pixelsize=15,
-!URxvt.font: xft:Monaco:medium:autohint=True:size=10, \
-!                xft:DejaVu Sans Mono:book:autohint=True:size=10, \
-!                xft:wenquanyi bitmap song:medium:pixelsize=15:antialias=True
-!URxvt.boldFont: xft:Luxi Mono:bold:antialias=True:pixelsize=15,
-!URxvt.boldFont: xft:Monaco:bold:autohint=True:size=10, \
-!                xft:DejaVu Sans Mono:bold:autohint=True:size=10, \
-!                xft:wenquanyi bitmap song:bold:pixelsize=15:antialias=True
-
+xft:DejaVu Sans Mono:size=8, \
+xft:WenQuanYi MicroHei Mono:pixelsize=12
 
 !Input Method
 URxvt.inputMethod: ibus
