@@ -77,11 +77,11 @@ URxvt.cursorBlink:true
 URxvt.borderLess: false
 !fonts
 URxvt.font: \
-xft:DejaVu Sans Mono:size=8, \
-xft:WenQuanYi MicroHei Mono:pixelsize=12
+xft:DejaVu Sans Mono:size=8:style=Regular:antilias=true, \
+	xft:WenQuanYi MicroHei Mono:size=8:style=Regular:antialias=true
 URxvt.boldfont: \
-xft:DejaVu Sans Mono:size=8, \
-xft:WenQuanYi MicroHei Mono:pixelsize=12
+xft:DejaVu Sans Mono:size=8:style=Bold:antilias=true,  \
+	xft:WenQuanYi MicroHei Mono:size=8:style=Bold:antialias=true
 
 !Input Method
 URxvt.inputMethod: ibus
@@ -92,7 +92,7 @@ URxvt.inputMethod: ibus
 ! tab切换:shift+left/shift+right
 ! 移动tab:ctrl+left/ctrl+right
 ! 新建tab:shift+down
-Rxvt.perl-ext-common:  default,matcher,tabbed
+URxvt.perl-ext-common:  default,matcher,tabbed
 URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.matcher.button:   1
 

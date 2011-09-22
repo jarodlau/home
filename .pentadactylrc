@@ -20,7 +20,7 @@ set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\bprev|pr
 " hilhlint find
 set hlfind
 " show the "Arch" on the title
-set titlestring="Arch"
+set titlestring="Firefox"
 "/*}}}*/
 
 "[ Keybing ]/*{{{*/

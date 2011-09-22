@@ -21,6 +21,8 @@ alias pacup='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
 alias pacout='sudo pacman -Rns'
 
+# Show the class of the windows
+alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info'
 # 
 alias pacrep='pacman -Si'              
 alias pacreps='pacman -Ss'             

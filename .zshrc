@@ -271,6 +271,9 @@ alias myip='curl -s www.123cha.com | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\
 # the short one
 alias myipshort='curl ifconfig.me'
 
+# Show the class of the windows
+alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info '
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
