@@ -73,6 +73,8 @@ URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 !cursor blink
 URxvt.cursorBlink:true
+!visualbell
+!URxvt.visualBell:true
 !边框
 URxvt.borderLess: false
 !fonts
