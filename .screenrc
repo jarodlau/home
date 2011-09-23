@@ -37,7 +37,7 @@ vbell_msg "   Wuff  ----  Wuff!!  "
 # nx    terminal uses xon/xoff
 
 # 256color
-terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # 这是配置那个tab bar
 hardstatus alwayslastline

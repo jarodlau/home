@@ -71,6 +71,11 @@ export CDPATH='.:..:../..:~:~/text:~/code:~/pic:~/yuer:~/public_html/'
 export MYSQL_PS1="[\\u@\\h \\d]"
 export EDITOR="vim"
 
+# ibus config 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 # go-office gtk2 set
 #export OOO_FORCE_DESKTOP=gnome
 #export OOO_FORCE_DESKTOP=gnome
