@@ -42,7 +42,9 @@ vbell_msg "   Wuff  ----  Wuff!!  "
 # 这是配置那个tab bar
 hardstatus alwayslastline
 hardstatus string "%{=b}%{b}%-w%{.BW}%10>[%n %t]%{-}%+w%< %=%{G}%C%A, %Y-%m-%d"
-#caption always "%{=u kC} %= %-w%L>%{=b G}[:%n %t:]%{-}%52<%+w %L=" termcapinfo xterm|rxvt ti@:te@
+#caption always "%?%F%{-b 4w}%:%{-b bb}%? %H | %l | %m-%d %c |%?%F%{-b 4w}%?%L=%-Lw%45>%{-b w4}%n%f* %t%{-}%+Lw%-0<"
+#caption always "%{=u kC} %= %-w%L>%{=b G}[:%n %t:]%{-}%52<%+w %L=" 
+#termcapinfo xterm|rxvt ti@:te@
 # screen里面的所有进程退出，screen就自动退出
 autodetach on # default: on
 # 退出vim/nano之后自动刷新屏幕

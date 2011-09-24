@@ -67,6 +67,7 @@ URxvt.scrollBar_floating: true
 URxvt.scrollstyle: plain
 URxvt.saveLines: 8192
 !滚屏设置
+URxvt.secondaryScroll: true
 URxvt.mouseWheelScrollPage:true
 URxvt.scrollTtyoutput: False
 URxvt.scrollWithBuffer: true
@@ -87,14 +88,14 @@ xft:DejaVu Sans Mono:size=8:style=Bold:antilias=true,  \
 
 !Input Method
 URxvt.inputMethod: ibus
-!URxvt.preeditType: OverTheSpot
+!URxvt.preeditType: Root
 !URxvt.imFont: WenQuanYi Bitmap Song
 !Open URLs in firefox tabbar
 !!支持tab
 ! tab切换:shift+left/shift+right
 ! 移动tab:ctrl+left/ctrl+right
 ! 新建tab:shift+down
-URxvt.perl-ext-common:  default,matcher,tabbed
+URxvt.perl-ext-common:  default,matcher
 URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.matcher.button:   1
 
