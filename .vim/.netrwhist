@@ -1,8 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/jarodlau/myworksource/routerautorestart'
-let g:netrw_dirhist_2='/home/jarodlau'
-let g:netrw_dirhist_3='/home/jarodlau/myworksource'
-let g:netrw_dirhist_4='vimwiki'
-let g:netrw_dirhist_5='/home/jarodlau'
-let g:netrw_dirhist_6='/home/jarodlau/.config/awesome'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/usr/share/awesome/themes'
+let g:netrw_dirhist_2='/usr/share/awesome/themes/sky'

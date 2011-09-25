@@ -54,7 +54,7 @@ msgwait 2 version
 # 启动信息
 startup_message off # default: on
 # 启用beep报错
-#vbell off
+vbell off
 # 默认的shell，不设置的话就是bash
 # shell zsh
 ## Keybindings ##
