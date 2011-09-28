@@ -37,11 +37,12 @@ vbell_msg "   Wuff  ----  Wuff!!  "
 # nx    terminal uses xon/xoff
 
 # 256color
-#terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # 这是配置那个tab bar
 hardstatus alwayslastline
 hardstatus string "%{=b}%{b}%-w%{.BW}%10>[%n %t]%{-}%+w%< %=%{G}%C%A, %Y-%m-%d"
+#hardstatus alwayslastline "%{= kd}%{r}[%{y}${USER}%{r}@%{g}%H%{r}]%{d}%-=%{b}%-Lw%{B}[%n%f*%t]%{b}%+Lw%-=%{r}[%{m}%c %{c}%d.%m.%Y%{r}]%{d}"
 #caption always "%?%F%{-b 4w}%:%{-b bb}%? %H | %l | %m-%d %c |%?%F%{-b 4w}%?%L=%-Lw%45>%{-b w4}%n%f* %t%{-}%+Lw%-0<"
 #caption always "%{=u kC} %= %-w%L>%{=b G}[:%n %t:]%{-}%52<%+w %L=" 
 #termcapinfo xterm|rxvt ti@:te@

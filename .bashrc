@@ -76,6 +76,11 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# 重新编译ibus-sunpinyin解决问题
+#setup XIM environment, need not if use SCIM as gtk-immodules
+#export XMODIFIERS=@im=fcitx
+#export GTK_IM_MODULE=fcitx
+#export QT_IM_MODULE=fcitx
 # go-office gtk2 set
 #export OOO_FORCE_DESKTOP=gnome
 #export OOO_FORCE_DESKTOP=gnome

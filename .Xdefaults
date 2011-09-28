@@ -88,6 +88,7 @@ xft:DejaVu Sans Mono:size=8:style=Bold:antilias=true,  \
 
 !Input Method
 URxvt.inputMethod: ibus
+!URxvt.inputMethod: fcitx
 !URxvt.preeditType: Root
 !URxvt.imFont: WenQuanYi Bitmap Song
 !Open URLs in firefox tabbar
