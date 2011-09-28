@@ -1,4 +1,6 @@
+# Thu 29 Sep 2011 05:39:47 AM CST
 # Created by newuser for 4.3.12
+
 
 #color{{{
 autoload colors
@@ -32,6 +34,21 @@ export EDITOR=vim
 export XMODIFIERS="@im=ibus"
 export QT_MODULE=ibus
 export GTK_MODULE=ibus
+
+
+#载入alias,与bashrc同步的# {{{
+if [ -f $HOME/.alias ]; then
+	source $HOME/.alias
+fi
+
+
+#[Esc][h] man 当前命令时，显示简短说明
+alias run-help >&/dev/null && unalias run-help
+autoload run-help
+#历史命令 top10
+alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+# }}}
+
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
 export HISTSIZE=10000
@@ -228,73 +245,6 @@ zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
 #}}}
 
-#命令别名 {{{
-# Some useful alias
-alias ls='ls --color=auto'
-alias ll='ls -lh'
-alias la='ls -a'
-
-# Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
-alias pacmir='sudo pacman -Syy'
-alias pacup='sudo pacman -Syu'
-
-alias pacin='sudo pacman -S'
-alias pacout='sudo pacman -Rns'
-
-# 
-alias pacrep='pacman -Si'              
-alias pacreps='pacman -Ss'             
-alias pacloc='pacman -Qi'              
-alias paclocs='pacman -Qs'             
-
-#lets you search through all available packages simply using 'pacsearch packagename'
-alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep " 
-# colorized pacman output with pacs alias:
-alias pacs="pacsearch-color"
-pacsearch-color () {
-echo -e "$(pacman -Ss $@ | sed \
-	-e 's#core/.*#\\033[1;31m&\\033[0;37m#g' \
-	-e 's#extra/.*#\\033[0;32m&\\033[0;37m#g' \
-	-e 's#community/.*#\\033[1;35m&\\033[0;37m#g' \
-	-e 's#^.*/.* [0-9].*#\\033[0;36m&\\033[0;37m#g' )"
-}
-
-# color grep
-export GREP_COLOR="1;33"
-alias grep='grep --color=auto'
-
-# color less
-export LESS="-R"
-
-# show me the wan ip
-alias myip='curl -s www.123cha.com | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" | head -n 1'
-# the short one
-alias myipshort='curl ifconfig.me'
-
-# Show the class of the windows
-alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info '
-
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias ls='ls -F --color=auto'
-alias ll='ls -al'
-alias grep='grep --color=auto'
-alias la='ls -a'
-#alias pacman='sudo pacman-color'
-#alias p='sudo pacman-color'
-alias y='yaourt'
-alias h='htop'
-#alias vim='sudo vim'
-
-#[Esc][h] man 当前命令时，显示简短说明
-alias run-help >&/dev/null && unalias run-help
-autoload run-help
-
-#历史命令 top10
-alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-#}}}
-
 #路径别名 {{{
 #进入相应的路径时只要 cd ~xxx
 hash -d A="/media/ayu/dearest"
@@ -342,7 +292,7 @@ setopt EXTENDED_GLOB
 # 开启高级命令提示符功能
 autoload -U promptinit
 promptinit
-# zsh主题clint(现实git状态,很好用)
+# zsh主题clint(显示git状态,很好用)
 prompt clint
 # 自动修改错误命令 
 setopt correctall
