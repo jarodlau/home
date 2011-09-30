@@ -33,7 +33,7 @@ alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info 
 alias p='pacman'
 alias psyy='sudo pacman -Syy'
 alias psyu='sudo pacman -Syu'
-alias ps='sudo pacman -S'
+alias pas='sudo pacman -S'
 alias prns='sudo pacman -Rns'
 alias psi='pacman -Si'
 alias pss='pacman -Ss'
