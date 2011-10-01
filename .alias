@@ -19,6 +19,9 @@ export LESS="-R"
 # Reattach screen if possible,otherwise start a new session
 alias screen='screen -RD'
 
+# alias ssh to setup arch install
+alias ssh='TERM=linux ssh'
+
 
 # show me the wan ip
 alias myip='curl -s www.123cha.com | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" | head -n 1'
