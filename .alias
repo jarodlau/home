@@ -33,15 +33,17 @@ alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info 
 
 ## arch更新相关#{{{
 # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
-alias p='pacman'
-alias psyy='sudo pacman -Syy'
-alias psyu='sudo pacman -Syu'
-alias pas='sudo pacman -S'
-alias prns='sudo pacman -Rns'
-alias psi='pacman -Si'
-alias pss='pacman -Ss'
-alias pqi='pacman -Qi'
-alias pqs='pacman -Qs'
+alias p='pacman-color'
+alias psyy='sudo pacman-color -Syy'
+alias psyu='sudo pacman-color -Syu'
+alias pas='sudo pacman-color -S'
+alias prns='sudo pacman-color -Rns'
+alias psi='pacman-color -Si'
+alias pss='pacman-color -Ss'
+alias pqi='pacman-color -Qi'
+alias pqm='pacman-color -Qm'
+alias pql='pacman-color -Ql'
+alias pqs='pacman-color -Qs'
 #lets you search through all available packages simply using 'pacsearch packagename'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
 # colorized pacman output with pacs alias:
