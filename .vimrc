@@ -178,7 +178,7 @@ set foldenable
 " syntax  用语法高亮来定义折叠
 " diff    对没有更改的文本进行折叠
 " marker  对文中的标志折叠
-set foldmethod=marker
+"set foldmethod=marker
 "折叠相关的快捷键
 "zR 打开所有的折叠
 "za Open/Close (toggle) a folded group of lines.
@@ -301,71 +301,71 @@ nnoremap <leader>4 :set filetype=php<cr>
 
 "}}}
 
-" PHP Twig 模板引擎语法"{{{
-au BufRead,BufNewFile *.twig set syntax=twig
-
-" Python 文件的一般设置，比如不要 tab 等
-"autocmd FileType python set tabstop=4 shiftwidth=4 expandtab
-
-" 设置字典 ~/.vim/dict/文件的路径
-"autocmd filetype javascript set dictionary=$VIMFILES/dict/javascript.dic
-"autocmd filetype css set dictionary=$VIMFILES/dict/css.dic
-"autocmd filetype php set dictionary=$VIMFILES/dict/php.dic
-
-autocmd! FileType * exec "set dict+=$VIMFILES/dict/".&ft.".dic"
-"set tags+=$VIM/vimfiles/tags/normal/*
-"autocmd! FileType * exec "set tags+=$VIM/vimfiles/tags/".&ft."/*"
-"inoremap <expr><tab>  pumvisible() ? "\<c-n>" : "\<tab>"
-"inoremap <expr><s-tab>  pumvisible() ? "\<c-p>" : "\<tab>"
-
-
-"Check the syntax of a PHP file
-function! CheckPHPSyntax()
-	if &filetype != 'php'
-		echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
-		return
-	endif
-	setlocal makeprg=php\ -l\ -n\ -d\ html_errors=off\ %
-	"setlocal makeprg=php\ -l\ -n\ %
-	setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-	echohl WarningMsg | echo 'Syntax checking output:' | echohl None
-
-	if &modified == 1
-		silent write
-	endif
-	silent make
-	clist
-endfunction
-
-au filetype php map <F11> :call CheckPHPSyntax()<CR>
-
-"Run a PHP Script
-function! ExecutePHPScript()
-	if &filetype != 'php'
-		echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
-		return
-	endif
-	setlocal makeprg=php\ -f\ %
-	setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-	echohl WarningMsg | echo 'Execution output:' | echohl None
-	if &modified == 1
-		silent write
-	endif
-	silent make
-	clist
-endfunction
-
-"function! RunSelectPHPScript()
-"'<,'>w !php
+"" PHP Twig 模板引擎语法"{{{
+"au BufRead,BufNewFile *.twig set syntax=twig
+"
+"" Python 文件的一般设置，比如不要 tab 等
+""autocmd FileType python set tabstop=4 shiftwidth=4 expandtab
+"
+"" 设置字典 ~/.vim/dict/文件的路径
+""autocmd filetype javascript set dictionary=$VIMFILES/dict/javascript.dic
+""autocmd filetype css set dictionary=$VIMFILES/dict/css.dic
+""autocmd filetype php set dictionary=$VIMFILES/dict/php.dic
+"
+"autocmd! FileType * exec "set dict+=$VIMFILES/dict/".&ft.".dic"
+""set tags+=$VIM/vimfiles/tags/normal/*
+""autocmd! FileType * exec "set tags+=$VIM/vimfiles/tags/".&ft."/*"
+""inoremap <expr><tab>  pumvisible() ? "\<c-n>" : "\<tab>"
+""inoremap <expr><s-tab>  pumvisible() ? "\<c-p>" : "\<tab>"
+"
+"
+""Check the syntax of a PHP file
+"function! CheckPHPSyntax()
+"	if &filetype != 'php'
+"		echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
+"		return
+"	endif
+"	setlocal makeprg=php\ -l\ -n\ -d\ html_errors=off\ %
+"	"setlocal makeprg=php\ -l\ -n\ %
+"	setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+"	echohl WarningMsg | echo 'Syntax checking output:' | echohl None
+"
+"	if &modified == 1
+"		silent write
+"	endif
+"	silent make
+"	clist
 "endfunction
-
-au filetype php nnoremap <C-F11> :call ExecutePHPScript()<CR>
-au filetype php inoremap <C-F11> <Esc> :call ExecutePHPScript()<CR>
-"au filetype php vnoremap <C-F11> <Esc> :call RunSelectPHPScript()<CR>
-"}}}
+"
+"au filetype php map <F11> :call CheckPHPSyntax()<CR>
+"
+""Run a PHP Script
+"function! ExecutePHPScript()
+"	if &filetype != 'php'
+"		echohl WarningMsg | echo 'This is not a PHP file !' | echohl None
+"		return
+"	endif
+"	setlocal makeprg=php\ -f\ %
+"	setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+"	echohl WarningMsg | echo 'Execution output:' | echohl None
+"	if &modified == 1
+"		silent write
+"	endif
+"	silent make
+"	clist
+"endfunction
+"
+""function! RunSelectPHPScript()
+""'<,'>w !php
+""endfunction
+"
+"au filetype php nnoremap <C-F11> :call ExecutePHPScript()<CR>
+"au filetype php inoremap <C-F11> <Esc> :call ExecutePHPScript()<CR>
+""au filetype php vnoremap <C-F11> <Esc> :call RunSelectPHPScript()<CR>
+""}}}
 
 " vimwiki 设定"{{{
-"
+
 "if has ('unix')
 " 设定一些vimwiki默认的目录
 let g:vimwiki_list=[{'path': '~/vimwiki/',
@@ -421,3 +421,4 @@ noremap <F4> :Vimwiki2HTMLBrowse<cr>
 nnoremap <F8> :Calendar<cr>
 "}}}
 
+" vim: fdm=marker ts=4 sw=4 tw=78 :
