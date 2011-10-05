@@ -21,6 +21,7 @@ alias screen='screen -RD'
 
 # alias ssh to setup arch install
 alias ssh='TERM=linux ssh'
+alias ssh4gfw='ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
 
 
 # show me the wan ip
