@@ -85,6 +85,10 @@ xft:DejaVu Sans Mono:size=8:style=Regular:antilias=true, \
 URxvt.boldfont: \
 xft:DejaVu Sans Mono:size=8:style=Bold:antilias=true,  \
 	xft:WenQuanYi MicroHei Mono:size=8:style=Bold:antialias=true
+URxvt.italicFont:	 xft:DejaVu Sans Mono:size=8:Italic:antialias=true,\
+	xft:WenQuanYi MicroHei Mono:size=8:Italic:antialias=true
+URxvt.boldItalicFont: xft:DejaVu Sans Mono:size=8:Bold Italic:antialias=true,\
+	xft:WenQuanYi MicroHei Mono:size=8:Bold Itali:cantialias=true
 
 !Input Method
 URxvt.inputMethod: ibus
