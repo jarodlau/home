@@ -77,49 +77,53 @@ export QT_IM_MODULE=ibus
 
 # 原生的 git 分支提示
 #PS1='[\u@\h`__git_ps1` \W]\$ '
+#PS1=' \w \n $(__git_ps1 "[ %s ] ")\$ '
+PS1=' \W \n $(__git_ps1 "%s ")\$ '
 
 # [ 色块 color 标记 git 状态 ]#{{{
 #--------------------------------------------
 # Colorful bash prompt reflecting Git status
 # From : http://opinionated-programmer.com/2011/01/colorful-bash-prompt-reflecting-git-status/
 
-function _git_prompt() {
-
-local git_status="`git status -unormal 2>&1`"
-if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
-	if [[ "$git_status" =~ nothing\ to\ commit ]]; then
-		local ansi=42
-	elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
-		local ansi=43
-	else
-		local ansi=45
-	fi
-	if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
-		branch=${BASH_REMATCH[1]}
-		test "$branch" != master || branch=' '
-	else
-		# Detached HEAD. (branch=HEAD is a faster alternative.)
-		branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
-			echo HEAD`)"
-	fi
-	echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
-fi
-}
-
+#function _git_prompt() {
+#
+#local git_status="`git status -unormal 2>&1`"
+#if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+#	if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+#		local ansi=42
+#	elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+#		local ansi=43
+#	else
+#		local ansi=45
+#	fi
+#	if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
+#		branch=${BASH_REMATCH[1]}
+#		test "$branch" != master || branch=' '
+#	else
+#		# Detached HEAD. (branch=HEAD is a faster alternative.)
+#		branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
+#			echo HEAD`)"
+#	fi
+#	echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
+#fi
+#}
+### XXX 单独使用 PS1，没有通过 PROMPT_COMMAND 函数调用
+### XXX 不会时事更新 git 信息，执行 PS1
+### XXX 是否无法在 screen 中动态修改标题栏 [?]
 #function _prompt_command() {
 #PS1="`_git_prompt`"'... your usual prompt goes here, e.g. \[\e[1;34m\]\w \$\[\e[0m\] '
 #}
 #PROMPT_COMMAND=_prompt_command
 
-if [ -n "$SSH_CLIENT" ]; then
-	#PS1='\[\e[0;33m\]\u@\h:\wSSH$\[\e[m\] '
-	#PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\wSSH\[\e[m\] \[\e[1;32m\]\$\[\    e[m\] '
-	#PS1="\[\e[1;31m\] \W-ssh- \$ \[\e[s\]\[\e[1;\$((COLUMNS-5))f\]\[\e[1;32m\]\$(whoami)\[\e[u\]\[\e[0m\]"
-	PS1='\[\033[34m\]\t[SSH]\[\033[1;31m\][\u@\h]\[\033[1;32m\]\w\[\033[m\]\$'
-
-else
-	PS1="`_git_prompt`"'\[\e[1;34m\]\w \n \$\[\e[0m\] '
-fi
+#if [ -n "$SSH_CLIENT" ]; then
+#	#PS1='\[\e[0;33m\]\u@\h:\wSSH$\[\e[m\] '
+#	#PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\wSSH\[\e[m\] \[\e[1;32m\]\$\[\    e[m\] '
+#	#PS1="\[\e[1;31m\] \W-ssh- \$ \[\e[s\]\[\e[1;\$((COLUMNS-5))f\]\[\e[1;32m\]\$(whoami)\[\e[u\]\[\e[0m\]"
+#	PS1='\[\033[34m\]\t[SSH]\[\033[1;31m\][\u@\h]\[\033[1;32m\]\w\[\033[m\]\$'
+#
+#else
+#	PS1="`_git_prompt`"'\[\e[1;34m\]\w \n \$\[\e[0m\] '
+#fi
 
 #PS1="`_git_prompt`"'\w \n \$ '
 
@@ -445,3 +449,4 @@ esac
 #
 ##}}}
 
+# vim: set fdm=marker ts=4 sw=4 tw=0 :

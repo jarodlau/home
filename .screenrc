@@ -72,6 +72,13 @@ bindkey -k F1 prev
 # F12右边的tab
 bindkey -k F2 next
 
+# Set xterm's title
+#hardstatus string "screen: %t"
+#%t就是当前window的标题
+#termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+#这句都说加, 但是我这加不加都行...
+
+
 #remove some stupid / dangerous key bindings
 bind ^k
 #bind L
