@@ -78,8 +78,8 @@ export QT_IM_MODULE=ibus
 # 原生的 git 分支提示
 #PS1='[\u@\h`__git_ps1` \W]\$ '
 #PS1=' \w \n $(__git_ps1 "[ %s ] ")\$ '
-PS1=' \W \n $(__git_ps1 "%s ")\$ '
-
+#PS1=' \W \n $(__git_ps1 "%s ")\$ '
+PS1='\[\e[0;32m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]`__git_ps1`\[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\]'
 # [ 色块 color 标记 git 状态 ]#{{{
 #--------------------------------------------
 # Colorful bash prompt reflecting Git status
