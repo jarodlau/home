@@ -8,7 +8,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias grep='grep --color=auto'
-alias la='ls -a'
 alias h='htop'
 #alias vim='sudo vim'
 # color grep

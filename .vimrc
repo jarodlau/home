@@ -178,7 +178,7 @@ set foldenable
 " syntax  用语法高亮来定义折叠
 " diff    对没有更改的文本进行折叠
 " marker  对文中的标志折叠
-"set foldmethod=marker
+set foldmethod=marker
 "折叠相关的快捷键
 "zR 打开所有的折叠
 "za Open/Close (toggle) a folded group of lines.
@@ -421,4 +421,3 @@ noremap <F4> :Vimwiki2HTMLBrowse<cr>
 nnoremap <F8> :Calendar<cr>
 "}}}
 
-" vim: fdm=marker ts=4 sw=4 tw=78 :
