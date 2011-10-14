@@ -79,7 +79,11 @@ export QT_IM_MODULE=ibus
 #PS1='[\u@\h`__git_ps1` \W]\$ '
 #PS1=' \w \n $(__git_ps1 "[ %s ] ")\$ '
 #PS1=' \W \n $(__git_ps1 "%s ")\$ '
-PS1='\[\e[0;32m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]`__git_ps1`\[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\]'
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+#PS1='\[\e[0;32m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]`__git_ps1`\[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\]'
+PS1='\[\033[0;31m\]\u \[\033[1;36m\]\w $(parse_git_branch)\n\[\033[1;32m\]> \[\033[00m\]'
 # [ 色块 color 标记 git 状态 ]#{{{
 #--------------------------------------------
 # Colorful bash prompt reflecting Git status

@@ -44,7 +44,8 @@ vbell_msg "   Wuff  ----  Wuff!!  "
 #caption always "%{= R}[ %{=b b}%-w%{=rb db}%>%n %t%{-}%+w%{-b}%< %=%{R}][%{M}%D %M %d %{G}%c%{R}]"
 
 # 256color
-#terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # Set xterm's title
 #hardstatus off
@@ -99,3 +100,8 @@ bind I login on
 bind O login off
 bind } history
 
+# Windows opening by default
+screen -t "BASH" 1
+#screen -t "MPD" 2 ncmpc --config=/home/esquiso/.config/mpd/ncmpc
+screen -t "IRC" 2 irssi
+screen -t "HTOP" 3 htop

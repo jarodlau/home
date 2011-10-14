@@ -4,10 +4,11 @@
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias grep='grep --color=auto'
+
+alias cp='cp -i -v'
+alias mv='mv -i -v'
+alias rm='rm -i -v'
+
 alias h='htop'
 #alias vim='sudo vim'
 # color grep
@@ -32,6 +33,9 @@ alias myipshort='curl ifconfig.me'
 
 # Show the class of the windows
 alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info '
+
+# lan
+alias wirelessMap='echo -e "Range 192.168.1.1-255" && nmap -sP 192.168.1.1-255'
 
 ## arch更新相关#{{{
 # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
