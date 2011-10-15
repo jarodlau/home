@@ -39,18 +39,18 @@ alias wirelessMap='echo -e "Range 192.168.1.1-255" && nmap -sP 192.168.1.1-255'
 
 ## arch更新相关#{{{
 # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
-alias p='pacman-color'
-alias psyy='sudo pacman-color -Syy'
-alias psyu='sudo pacman-color -Syu'
-alias pas='sudo pacman-color -S '
-alias prns='sudo pacman-color -Rns '
-alias psi='pacman-color -Si '
-alias pss='pacman-color -Ss '
-alias pqi='pacman-color -Qi '
-alias pqm='pacman-color -Qm '
-alias pql='pacman-color -Ql '
-alias pqs='pacman-color -Qs '
-alias pqo='pacman-color -Qo '
+alias p='pacman'
+alias psyy='sudo pacman -Syy'
+alias psyu='sudo pacman -Syu'
+alias pas='sudo pacman -S '
+alias prns='sudo pacman -Rns '
+alias psi='pacman -Si '
+alias pss='pacman -Ss '
+alias pqi='pacman -Qi '
+alias pqm='pacman -Qm '
+alias pql='pacman -Ql '
+alias pqs='pacman -Qs '
+alias pqo='pacman -Qo '
 #lets you search through all available packages simply using 'pacsearch packagename'
 alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
 # colorized pacman output with pacs alias:
@@ -62,8 +62,8 @@ echo -e "$(pacman -Ss $@ | sed \
 	-e 's#community/.*#\\033[1;35m&\\033[0;37m#g' \
 	-e 's#^.*/.* [0-9].*#\\033[0;36m&\\033[0;37m#g' )"
 }
-#alias pacman='sudo pacman-color'
-#alias p='sudo pacman-color'
+#alias pacman='sudo pacman'
+#alias p='sudo pacman'
 
 # Yaourt Aliases
 alias y='yaourt '

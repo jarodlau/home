@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/usr/share/awesome/themes'
-let g:netrw_dirhist_2='/usr/share/awesome/themes/sky'
-let g:netrw_dirhist_3='/home/jarodlau/.config/awesome/vicious/widgets'
-let g:netrw_dirhist_4='/usr/include/AL'
-let g:netrw_dirhist_5='/usr/include'
-let g:netrw_dirhist_6='/usr'
-let g:netrw_dirhist_7='/'
-let g:netrw_dirhist_8='/home'
-let g:netrw_dirhist_9='/home/jarodlau'
+let g:netrw_dirhist_cnt =0
