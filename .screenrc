@@ -101,7 +101,8 @@ bind O login off
 bind } history
 
 # Windows opening by default
-screen -t "BASH" 1
+#screen -t "BASH" 1
 #screen -t "MPD" 2 ncmpc --config=/home/esquiso/.config/mpd/ncmpc
-screen -t "IRC" 2 irssi
-screen -t "HTOP" 3 htop
+screen -t "IRC"  1 tsocks irssi
+screen -t "HTOP" 2 htop
+screen -t "BASH" 3 bash

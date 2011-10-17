@@ -19,6 +19,9 @@ export LESS="-R"
 # Reattach screen if possible,otherwise start a new session
 alias screen='screen -RD'
 
+# shutdown screen
+alias soff='sleep 5 && xset dpms force off'
+
 
 # alias ssh to setup arch install
 alias ssh='TERM=linux ssh'
