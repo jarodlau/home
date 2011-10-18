@@ -103,6 +103,7 @@ bind } history
 # Windows opening by default
 #screen -t "BASH" 1
 #screen -t "MPD" 2 ncmpc --config=/home/esquiso/.config/mpd/ncmpc
+screen -t "MUTT" 2 tsocks mutt
 screen -t "IRC"  1 tsocks irssi
-screen -t "HTOP" 2 htop
+screen -t "HTOP" 0 htop
 screen -t "BASH" 3 bash

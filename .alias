@@ -28,6 +28,9 @@ alias ssh='TERM=linux ssh'
 # 只启动一次ssh4gfw
 alias ssh4gfw='killall ssh && ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
 
+# tsocks alias
+alias irssi='tsocks irssi'
+alias mutt='tsocks mutt'
 
 # show me the wan ip
 alias myip='curl -s www.123cha.com | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" | head -n 1'
