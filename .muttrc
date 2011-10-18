@@ -37,7 +37,7 @@ set spoolfile = "+INBOX"
 set postponed ="+[Gmail]/Drafts"
 
 #Local Folders
-
+## previously do:  mkdir -p ~/.mutt/cache/{headers,bodies}
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
@@ -87,7 +87,7 @@ set imap_keepalive = 900
 #subscribe kernelnewbies@kernelnewbies.org
 #subscribe ubuntu-users@lists.ubuntu.com
 #subscribe vim_use@googlegroups.com
-#subscribe python-list@python.org
+subscribe python-list@python.org
 subscribe ubuntu-zh@lists.ubuntu.com
 subscribe python-cn@googlegroups.com
 #subscribe aur-general@archlinux.org
