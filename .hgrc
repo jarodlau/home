@@ -5,3 +5,8 @@ verbose = True
 ssh = ssh -C
 [extensions]
 hgk=
+
+hgext.bookmarks =
+hggit =
+[git]
+intree = True

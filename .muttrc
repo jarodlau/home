@@ -90,6 +90,8 @@ set imap_keepalive = 900
 subscribe python-list@python.org
 subscribe ubuntu-zh@lists.ubuntu.com
 subscribe python-cn@googlegroups.com
+subscribe freebsd-ports@freebsd.org
+subscribe ports@freebsd.org
 #subscribe aur-general@archlinux.org
 #subscribe vim@vim.org
 

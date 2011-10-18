@@ -28,6 +28,11 @@ alias ssh='TERM=linux ssh'
 # 只启动一次ssh4gfw
 alias ssh4gfw='killall ssh && ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
 
+# ssh for freebsd server
+alias sshfreebsd='ssh jerry@192.168.1.110'
+# ssh for arch server
+alias ssharch='ssh jerry@192.168.1.111'
+
 # tsocks alias
 alias irssi='tsocks irssi'
 alias mutt='tsocks mutt'
