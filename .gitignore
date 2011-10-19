@@ -32,7 +32,9 @@
 .xsession-errors
 .hg*
 .gnu*
+.gmrun*
 .bzr*
 .htop*
 .zcomp*
 .java*
+.vim/.net*

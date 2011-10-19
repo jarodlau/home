@@ -92,6 +92,9 @@ subscribe ubuntu-zh@lists.ubuntu.com
 subscribe python-cn@googlegroups.com
 subscribe freebsd-ports@freebsd.org
 subscribe ports@freebsd.org
+subscribe freebsd-questions@freebsd.org
+subscribe questens@freebsd.org
+subscribe freebsd-stable@freebsd.org
 #subscribe aur-general@archlinux.org
 #subscribe vim@vim.org
 
