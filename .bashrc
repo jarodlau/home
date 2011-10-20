@@ -1,6 +1,8 @@
 # Thu 29 Sep 2011 05:38:30 AM CST
 # ~/.bashrc
 
+command cowsay $(fortune)
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
