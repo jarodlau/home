@@ -3,10 +3,10 @@
 # Some useful alias
 
 # ls
-#alias ls='ls --color=auto'
+alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
-alias ls='ls -hF --color=auto'
+#alias ls='ls -hF --color=auto'
 alias lr='ls -R'                    # recursive ls
 #alias ll='ls -l'
 #alias la='ll -A'
@@ -14,6 +14,7 @@ alias lx='ll -BX'                   # sort by extension
 alias lz='ll -rS'                   # sort by size
 alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
+
 alias ln='ln -i'
 
 # safety features
