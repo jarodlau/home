@@ -12,6 +12,7 @@
 !README
 !.mplayer/config
 !.vim/
+!.config/
 #
 .ICEauthority
 .Xauthority
