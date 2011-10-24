@@ -95,6 +95,8 @@ subscribe ports@freebsd.org
 subscribe freebsd-questions@freebsd.org
 subscribe questens@freebsd.org
 subscribe freebsd-stable@freebsd.org
+subscribe freebsd-current@freebsd.org
+subscribe current@freebsd.org
 #subscribe aur-general@archlinux.org
 #subscribe vim@vim.org
 
