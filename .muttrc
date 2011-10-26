@@ -70,16 +70,16 @@ set tilde=yes
 # Charset settings
 set rfc2047_parameters=yes
 
-#Sort methord
+# Sort methord
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
 
 # Pager view
 set resolve=yes
 set pager_stop=yes
-set pager_index_lines=15
+set pager_index_lines=5
 
-#Mutt Session Security
+# Mutt Session Security
 set move = no  #Stop asking to "move read messages to mbox"!
 set imap_keepalive = 900
 

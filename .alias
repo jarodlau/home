@@ -44,7 +44,7 @@ alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
 alias hist='history | grep $1'      # requires an argument
 alias openports='netstat --all --numeric --programs --inet --inet6'
-alias psgrep='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
+alias psgrep='ps -Af | grep $1'          # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
 alias grepblack="grep '^[^#]' $1" # show the file without comment(like '#')
 
 # privileged access
@@ -77,6 +77,7 @@ alias soff='sleep 5 && xset dpms force off'
 alias ssh='TERM=linux ssh'
 # 只启动一次ssh4gfw
 alias ssh4gfw='killall ssh && ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
+alias sshcjb='ssh -C jarodlau@216.194.70.6'
 
 # startup the xp of virtualbox
 alias xp='vboxmanage startvm xp'
@@ -89,6 +90,12 @@ alias ssharch='ssh jerry@192.168.1.111'
 # ssh for centos server
 alias centosserver='vboxheadless -s centos &'
 alias sshcentos='ssh jerry@192.168.1.112'
+
+# mount usbdisk as /mnt
+alias mountusb='sudo mount -t vfat /dev/sdb1 /mnt'
+alias umountusb='sudo umount /dev/sdb1'
+# startup the qemu usbdisk
+alias qemuusb='sudo qemu -m 1024 -hda /dev/sdb'
 
 # tsocks alias
 alias irssi='tsocks irssi'
