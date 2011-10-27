@@ -18,7 +18,7 @@ fi
 #--------------------------------------------
 
 export PATH=$PATH:${HOME}/code/shell:${HOME}/.todo
-export CDPATH='.:..:../..:~:~/text:~/code:~/pic:~/yuer:~/public_html/'
+export CDPATH='.:..:../..:~:~/text:~/scripts:~/code:~/pic:~/yuer:~/public_html/'
 export MYSQL_PS1="[\\u@\\h \\d]"
 export EDITOR="vim"
 
