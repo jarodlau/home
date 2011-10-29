@@ -237,7 +237,7 @@ if has("gui_running")
 	set showtabline=1 " 隐藏Tab栏
 else
 	" 设定配色方案
-	colorscheme desert
+	"colorscheme desert
 	set background=dark
 
 endif

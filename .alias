@@ -78,6 +78,7 @@ alias ssh='TERM=linux ssh'
 # 只启动一次ssh4gfw
 alias ssh4gfw='killall ssh && ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
 alias sshcjb='ssh -C jarodlau@216.194.70.6'
+alias sshdcjb='ssh -CNg -qnf -D 7070 jarodlau@216.194.70.6'
 
 # startup the xp of virtualbox
 alias xp='vboxmanage startvm xp'
@@ -98,6 +99,9 @@ alias mountusb='sudo mount -t vfat /dev/sdb1 /mnt'
 alias umountusb='sudo umount /dev/sdb1'
 # startup the qemu usbdisk
 alias qemuusb='sudo qemu -m 1024 -hda /dev/sdb'
+
+# show the smart
+alias smart='sudo smartctl -a /dev/sda | grep Cycle '
 
 # tsocks alias
 #alias irssi='tsocks irssi'
