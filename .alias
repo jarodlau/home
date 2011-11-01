@@ -79,6 +79,9 @@ alias ssh='TERM=linux ssh'
 alias ssh4gfw='killall ssh && ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
 alias sshcjb='ssh -C jarodlau@216.194.70.6'
 alias sshdcjb='ssh -CNg -qnf -D 7070 jarodlau@216.194.70.6'
+alias sshtunnel='ssh -CNg -qnf -D 7070 '
+# dreamhost http://xinm.tk
+alias sshdxinm='ssh -CNg -qnf -D 7070 imfreeuser@alpaca.xinm.tk'
 
 # startup the xp of virtualbox
 alias xp='vboxmanage startvm xp'
