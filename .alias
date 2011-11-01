@@ -70,6 +70,7 @@ alias mountusb='sudo mount -t vfat /dev/sdb1 /mnt'
 alias umountusb='sudo umount /dev/sdb1'
 # startup the qemu usbdisk
 alias qemuusb='sudo qemu -m 1024 -hda /dev/sdb'
+alias qemuiso='sudo qemu -m 1024 -cdrom '
 # show the smart
 alias smart='sudo smartctl -a /dev/sda | grep Cycle '
 alias hdtemp='sudo smartctl -a /dev/sda | grep Temp '
