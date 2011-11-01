@@ -69,10 +69,26 @@ set tilde=yes
 
 # Charset settings
 set rfc2047_parameters=yes
+#set charset=utf8
+#set assumed_charset='utf-8:gb2312:gb18030:gbk'
+#set send_charset='gb2312:utf-8:us-ascii:iso-8859-1'
+#set locale=en_US.UTF-8
+#charset-hook !utf-8 gb2312
 
 # Sort methord
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
+
+# Auto view
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html application/pdf application/msword
+
+# Alias file
+source ~/.mutt/alias
+set alias_file=~/.mutt/alias
+
+# Signature
+set signature=~/.mutt/signature
 
 # Pager view
 set resolve=yes
@@ -106,14 +122,17 @@ subscribe current@freebsd.org
 
 bind index gg first-entry
 bind index G last-entry
-#bind index \cf next-page
-#bind index \cb previous-page
-#bind pager j next-line
-#bind pager k previous-line
+bind index \cf next-page
+bind index \cb previous-page
+bind pager j next-line
+bind pager k previous-line
 bind pager gg top
 bind pager G bottom
-#bind index \cx sync-mailbox
+bind index \cx sync-mailbox
 bind editor <space> noop
+bind index,pager L group-reply
+
+macro pager \cb |urlview\n "Call urlview"
 
 #Gmail Keybindings
 macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
@@ -124,16 +143,18 @@ macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Gmail]/Spam<enter>" "Go to spam"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
-
 #macro index,pager H "<save-message>=INBOX<enter>" "Mark message as ham"
-#macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "Mark message as spam"
-#macro index \cr "<tag-pattern>.\n<tag-prefix><clear-flag>N<untag-pattern>.\n" "Mark all messages as read"
+macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "Mark message as spam"
+macro index \cr "<tag-pattern>.\n<tag-prefix><clear-flag>N<untag-pattern>.\n" "Mark all messages as read"
 
 folder-hook . 'macro index,pager d "<save-message>=[Gmail]/Trash<enter>" "Mark message as trash"'
 folder-hook 'Spam|Trash' 'bind index,pager d delete-message'
 
 # Mail show 
-set index_format="%4C %Z %{%b %d} %-15.15L (%4l) %s"
+#set index_format="%4C %Z %{%b %d} %-15.15L (%4l) %s"
+set index_format="%4C %Z %{%b %d} %?X?%X& ? %-18.18L [%4c] %s"
+#set status_format="mutt-filter '-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]----%>-(%P)---'|"
+
 
 # Colors
 
