@@ -53,7 +53,7 @@ alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
 alias hist='history | grep $1'      # requires an argument
 alias openports='netstat --all --numeric --programs --inet --inet6'
-alias psgrep='ps -Af | grep $1'          # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
+alias psgrep='ps aux | grep $1'          # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
 alias grepblack="grep '^[^#]' $1" # show the file without comment(like '#')
 
 # privileged access
@@ -63,6 +63,7 @@ alias scat='sudo cat'
 alias svim='sudo vim'
 alias root='sudo su'
 alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -Ph now'
 alias halt='sudo halt'
 alias update='sudo pacman -Su'
 ## mount usbdisk as /mnt
