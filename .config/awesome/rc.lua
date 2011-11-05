@@ -482,7 +482,7 @@ floating_apps = {
     'Downloads', 'Firefox Preferences',
   },
   instance = {
-    'QQ.exe', 'Toplevel', -- 火狐的对话框
+    'QQ.exe',-- 'Toplevel', -- 火狐的对话框
   },
 }
 awful.rules.rules = {
