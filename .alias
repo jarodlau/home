@@ -81,6 +81,7 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 # hibernate and suspend
 alias pm-hibernate='sudo pm-hibernate'
 alias pm-suspend='sudo pm-suspend'
+alias backup='sudo rsync -avh --progress '
 fi
 
 # shutdown screen
@@ -97,6 +98,8 @@ alias sshtunnel='ssh -CNg -qnf -D 7070 '
 alias sshdxinm1='ssh -CNg -qnf -D 7070 imfreeuser@alpaca.xinm.tk'
 alias sshdxinm2='ssh -CNg -qnf -D 7070 imfreeuser2@bullfrog.xinm.tk'
 alias sshdxinm3='ssh -CNg -qnf -D 7070 imfreeuser3@carp.xinm.tk'
+# cisco router
+alias cisco='telnet 10.150.16.1 '
 
 # startup the xp of virtualbox
 alias xp='vboxmanage startvm xp'
