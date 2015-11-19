@@ -1,0 +1,198 @@
+
+# A Simple Mutt Config for GMail by archvortex@gmail.com
+
+# Sets up mail box in your home folder
+
+#set mbox_type=maildir
+#set mbox="~/mail/inbox/"
+#set spoolfile="~/mail/inbox/"
+#set folder="~/mail/"
+#set record="~/mail/sent/"
+#set postponed="~/mail/postponed/"
+
+#Gmail account info
+
+set from = "Jarod Lau <jarodlau@gmail.com>"
+set realname = "Jarod Lau"
+set imap_user = "jarodlau@gmail.com"
+
+#SMTP Setup
+
+set smtp_url = "smtp://jarodlau@smtp.gmail.com:587/"
+
+#set imap_pass = 
+#set smtp_pass = 
+source ~/.mutt/passwd
+
+#My Editor
+
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp" -c "?^$"'
+
+#Folders
+
+#Remote Folders
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed ="+[Gmail]/Drafts"
+
+#Local Folders
+## previously do:  mkdir -p ~/.mutt/cache/{headers,bodies}
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+#don't move to mailbox
+set move = no
+set imap_keepalive = 900
+
+#New mail
+set mark_old=no
+set beep_new=yes
+set check_new=yes
+
+# Quit without question
+set quit=ask-yes
+
+# Ask for a key after command
+set wait_key=yes
+
+# Set timeout
+set timeout=15
+set mail_check=90
+
+# No record
+unset record
+
+# Show tildes at the end of mail
+set tilde=yes
+
+# Charset settings
+set rfc2047_parameters=yes
+#set charset=utf8
+#set assumed_charset='utf-8:gb2312:gb18030:gbk'
+#set send_charset='gb2312:utf-8:us-ascii:iso-8859-1'
+#set locale=en_US.UTF-8
+#charset-hook !utf-8 gb2312
+
+# Sort methord
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+
+# Auto view
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html application/pdf application/msword
+
+# Alias file
+source ~/.mutt/alias
+set alias_file=~/.mutt/alias
+
+# Signature
+set signature=~/.mutt/signature
+
+# Pager view
+set resolve=yes
+set pager_stop=yes
+set pager_index_lines=5
+
+# Mutt Session Security
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 900
+
+# Mailing list
+#subscribe kernelnewbies@kernelnewbies.org
+#subscribe ubuntu-users@lists.ubuntu.com
+#subscribe vim_use@googlegroups.com
+subscribe python-list@python.org
+subscribe ubuntu-zh@lists.ubuntu.com
+subscribe python-cn@googlegroups.com
+subscribe freebsd-ports@freebsd.org
+subscribe ports@freebsd.org
+subscribe freebsd-questions@freebsd.org
+subscribe questens@freebsd.org
+subscribe freebsd-stable@freebsd.org
+subscribe stable@freebsd.org
+subscribe freebsd-current@freebsd.org
+subscribe current@freebsd.org
+#subscribe aur-general@archlinux.org
+#subscribe vim@vim.org
+
+#Special Keybindings
+
+
+bind index gg first-entry
+bind index G last-entry
+bind index \cf next-page
+bind index \cb previous-page
+bind pager j next-line
+bind pager k previous-line
+bind pager gg top
+bind pager G bottom
+bind index \cx sync-mailbox
+bind editor <space> noop
+bind index,pager L group-reply
+
+macro pager \cb |urlview\n "Call urlview"
+
+#Gmail Keybindings
+macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+#macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
+macro index gs "<change-folder>=[Gmail]/Spam<enter>" "Go to spam"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
+#macro index,pager H "<save-message>=INBOX<enter>" "Mark message as ham"
+macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "Mark message as spam"
+macro index \cr "<tag-pattern>.\n<tag-prefix><clear-flag>N<untag-pattern>.\n" "Mark all messages as read"
+
+folder-hook . 'macro index,pager d "<save-message>=[Gmail]/Trash<enter>" "Mark message as trash"'
+folder-hook 'Spam|Trash' 'bind index,pager d delete-message'
+
+# Mail show 
+#set index_format="%4C %Z %{%b %d} %-15.15L (%4l) %s"
+set index_format="%4C %Z %{%b %d} %?X?%X& ? %-18.18L [%4c] %s"
+#set status_format="mutt-filter '-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]----%>-(%P)---'|"
+
+
+# Colors
+
+color normal    white black
+color attachment brightyellow black
+color hdrdefault cyan black
+color indicator black cyan
+color markers    brightred black
+color quoted    green black
+color signature cyan black
+color status    brightgreen blue
+color tilde    blue black
+color tree    red black
+
+# 让mutt识别不同的邮件特征
+# # " "(空): 表示这封邮件的 To: 和 Cc: Bcc: 都没有你的地址，很多垃圾邮件都有这个特征。
+# # +: 表示你是收件人(To: 是你的地址之一)，而且是唯一的收件人。
+# # T: 表示你是收件人(To: 包括了你的地址之一)，但是你不是唯一的收件人。这是一封群体信件。
+# # C: 表示你的地址出现在 CC:，但是你不是唯一的被抄送的人。
+# # F: 表示这封邮件是你发出去的。
+# # L: 表示这是一封你已经加入的邮件列表寄来的。
+
+color index    red black ~D
+color index    magenta black ~T
+color index     yellow         default ~N      # New
+color index     yellow         default ~O      # Old
+#color index     red            default ~F      # Flagged
+#color index     cyan           default ~T      # Tagged
+#color index     blue           default ~D      # Deleted
+
+#color header    brightgreen black ^From:
+#color header    brightcyan black ^To:
+#color header    brightcyan black ^Reply-To:
+#color header    brightcyan black ^Cc:
+#color header    brightblue black ^Subject:
+
+# identifies email addresses
+color body    brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+
+# identifies URLs
+color body    brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+

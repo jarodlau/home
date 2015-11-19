@@ -1,0 +1,191 @@
+
+# Some useful alias
+
+# ls
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -a'
+#alias ls='ls -hF --color=auto'
+alias lr='ls -R'                    # recursive ls
+#alias ll='ls -l'
+#alias la='ll -A'
+alias lx='ll -BX'                   # sort by extension
+alias lz='ll -rS'                   # sort by size
+alias lt='ll -rt'                   # sort by date
+alias lm='la | more'
+
+alias ln='ln -i'
+
+# safety features
+#alias cp='cp -i'
+#alias mv='mv -i'
+#alias rm='rm -I'                    # 'rm -i' prompts for every file
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+alias cp='cp -i -v'
+alias mv='mv -i -v'
+alias rm='rm -i -v'
+
+# modified commands
+#alias diff='colordiff'              # requires colordiff package
+#alias grep='grep --color=auto'
+alias more='less'
+alias df='df -h'
+alias du='du -c -h'
+alias mkdir='mkdir -p -v'
+alias nano='nano -w'
+alias ping='ping -c 5'
+alias ..='cd ..'
+alias h='htop'
+#alias vim='sudo vim'
+# color grep
+export GREP_COLOR="1;33"
+alias grep='grep --color=auto'
+# color less
+export LESS="-R"
+# Reattach screen if possible,otherwise start a new session
+alias screen='screen -RD'
+
+
+# new commands
+alias da='date "+%A, %B %d, %Y [%T]"'
+alias du1='du --max-depth=1'
+alias hist='history | grep $1'      # requires an argument
+alias openports='netstat --all --numeric --programs --inet --inet6'
+alias psgrep='ps aux | grep $1'          # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
+alias grepblack="grep '^[^#]' $1" # show the file without comment(like '#')
+
+# privileged access
+if [ $UID -ne 0 ]; then
+alias sudo='sudo '
+alias scat='sudo cat'
+alias svim='sudo vim'
+alias root='sudo su'
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -Ph now'
+alias halt='sudo halt'
+alias update='sudo pacman -Su'
+## mount usbdisk as /mnt
+alias mountusb='sudo mount -t vfat /dev/sdb1 /mnt'
+alias umountusb='sudo umount /dev/sdb1'
+# startup the qemu usbdisk
+alias qemuusb='sudo qemu -m 1024 -hda /dev/sdb'
+alias qemuiso='sudo qemu -m 1024 -cdrom '
+# show the smart
+alias smart='sudo smartctl -a /dev/sda | grep Cycle '
+alias hdtemp='sudo smartctl -a /dev/sda | grep Temp '
+alias netcfg='sudo netcfg2'
+# grub2 
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+# hibernate and suspend
+alias pm-hibernate='sudo pm-hibernate'
+alias pm-suspend='sudo pm-suspend'
+alias backup='sudo rsync -avh --progress '
+fi
+
+# shutdown screen
+alias soff='sleep 5 && xset dpms force off'
+
+# alias ssh to setup arch install
+alias ssh='TERM=linux ssh'
+# 只启动一次ssh4gfw
+alias ssh4gfw='killall ssh && ssh -CNg -qnf -D 7070 tm-0004208@temp1.ssh4gfw.com'
+alias sshcjb='ssh -C jarodlau@216.194.70.6'
+alias sshdcjb='ssh -CNg -qnf -D 7070 jarodlau@216.194.70.6'
+alias sshtunnel='ssh -CNg -qnf -D 7070 '
+# dreamhost http://xinm.tk
+alias sshdxinm1='ssh -CNg -qnf -D 7070 imfreeuser@alpaca.xinm.tk'
+alias sshdxinm2='ssh -CNg -qnf -D 7070 imfreeuser2@bullfrog.xinm.tk'
+alias sshdxinm3='ssh -CNg -qnf -D 7070 imfreeuser3@carp.xinm.tk'
+# cisco router
+alias cisco='telnet 10.150.16.1 '
+
+# startup the xp of virtualbox
+alias xp='vboxmanage startvm xp'
+# ssh for freebsd server
+alias freebsdserver='vboxheadless -s freebsd &'
+alias sshfreebsd='ssh jerry@192.168.1.110'
+# ssh for arch server
+alias archserver='vboxheadless -s arch &'
+alias ssharch='ssh jerry@192.168.1.111'
+# ssh for centos server
+alias centosserver='vboxheadless -s centos &'
+alias sshcentos='ssh jerry@192.168.1.112'
+# boot systemrescuecd base gentoo
+#alias  gentoolive='vboxheadless -s rescuecd &'
+
+# tsocks alias
+#alias irssi='tsocks irssi'
+#alias mutt='tsocks mutt'
+
+# show me the wan ip
+alias myip='curl -s www.123cha.com | grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}" | head -n 1'
+# the short one
+alias myipshort='curl ifconfig.me'
+
+# Show the class of the windows
+alias xpop='xprop | grep --color=none "WM_CLASS\|^WM_NAME" | zenity --text-info '
+
+# lan
+alias wirelessMap='echo -e "Range 192.168.1.1-255" && nmap -sP 192.168.1.1-255'
+
+## arch更新相关#{{{
+# Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+	alias p='pacman'
+		alias psyy='sudo pacman -Syy'
+		alias psyu='sudo pacman -Syu'
+		alias pas='sudo pacman -S '
+		alias prns='sudo pacman -Rns '
+		alias psi='pacman -Si '
+		alias pss='pacman -Ss '
+		alias pqi='pacman -Qi '
+		alias pqii='pacman -Qii '
+		alias pqm='pacman -Qm '
+		alias pql='pacman -Ql '
+		alias pqdt='pacman -Qdt '
+		alias pqs='pacman -Qs '
+		alias pqo='pacman -Qo '
+#lets you search through all available packages simply using 'pacsearch packagename'
+		alias pacsearch="pacman -Sl | cut -d' ' -f2 | grep "
+# colorized pacman output with pacs alias:
+		alias pacs="pacsearch-color"
+		pacsearch-color () {
+			echo -e "$(pacman -Ss $@ | sed \
+				-e 's#core/.*#\\033[1;31m&\\033[0;37m#g' \
+				-e 's#extra/.*#\\033[0;32m&\\033[0;37m#g' \
+				-e 's#community/.*#\\033[1;35m&\\033[0;37m#g' \
+				-e 's#^.*/.* [0-9].*#\\033[0;36m&\\033[0;37m#g' )"
+		}
+#alias pacman='sudo pacman'
+#alias p='sudo pacman'
+
+# Yaourt Aliases
+	alias y='yaourt '
+		alias ys='yaourt -S '
+		alias yss='yaourt -Ss '
+		alias yr='yaourt -R '
+		alias yrs='yaourt -Rs '
+		alias yrc='yaourt -Rc '
+		alias yrsc='yaourt -Rsc '
+		alias ysyy='yaourt -Syy'
+		alias ysyu='yaourt -Syu'
+		alias ysyua='yaourt -Syua'
+		alias yu='yaourt -U '
+		alias ysyyu='yaourt -Syyu'
+		alias yq='yaourt -Q '
+		alias yqs='yaourt -Qs '
+		alias yqe='yaourt -Qe '
+		alias yqm='yaourt -Qm '
+		alias yqi='yaourt -Qi '
+		alias yql='yaourt -Ql '
+		alias yqil='yaourt -Qil '
+		alias yqm='yaourt -Qm '
+		alias yqd='yaourt -Qd '
+		alias yqt='yaourt -Qt '
+		alias yqdt='yaourt -Qdt '
+# List all installed packages with description
+		alias yqD="yaourt -Qi | grep -e ^Name -e ^Description | awk -F: '{print $2}'"
+
+#}}}
+

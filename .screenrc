@@ -1,0 +1,109 @@
+#
+# This is an example for the global screenrc file.
+# You may want to install this file as /usr/local/etc/screenrc.
+# Check config.h for the exact location.
+#
+# Flaws of termcap and standard settings are done here.
+# Sun 02 Oct 2011 09:42:55 AM CST
+
+#startup_message off
+
+#defflow on # will force screen to process ^S/^Q
+
+deflogin on
+#autodetach off
+defscrollback 1000
+# 启用beep报错
+vbell off #on
+vbell_msg "   Wuff  ----  Wuff!!  "
+
+# all termcap entries are now duplicated as terminfo entries.
+# only difference should be the slightly modified syntax, and check for
+# terminfo entries, that are already corected in the database.
+# 
+# G0 	we have a SEMI-GRAPHICS-CHARACTER-MODE
+# WS	this sequence resizes our window.
+# cs    this sequence changes the scrollregion
+# hs@	we have no hardware statusline. screen will only believe that
+#       there is a hardware status line if hs,ts,fs,ds are all set.
+# ts    to statusline
+# fs    from statusline
+# ds    delete statusline
+# al    add one line
+# AL    add multiple lines
+# dl    delete one line
+# DL    delete multiple lines
+# ic    insert one char (space)
+# IC    insert multiple chars
+# nx    terminal uses xon/xoff
+
+# Dynamic title
+#shelltitle '$ |bash'
+
+# Caption String
+#caption always "%{= R}[ %{=b b}%-w%{=rb db}%>%n %t%{-}%+w%{-b}%< %=%{R}][%{M}%D %M %d %{G}%c%{R}]"
+
+# 256color
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Set xterm's title
+#hardstatus off
+#hardstatus string "screen(@%H): %t"
+terminfo xterm*|rxvt ti@:te@
+terminfo xterm* 'XT:hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen (^En ^Et)\007'
+# 这是配置那个tab bar
+hardstatus alwayslastline
+hardstatus string "%{= B}:%{= b}: %{= r}[ %{G}%H%{= r} ] %= %{=b b}%-w%{=rb db}%>%n %t%{-}%+w %=%{= r}[ %{G}%c %{M}%D %m-%d %{r}] %{= b}:%{B}:"
+
+
+
+# screen里面的所有进程退出，screen就自动退出
+autodetach on # default: on
+# 退出vim/nano之后自动刷新屏幕
+altscreen on
+# 启动等待，显示版本
+msgwait 2 
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+# 启动信息
+startup_message off # default: on
+nethack on
+defutf8 on
+# 默认的shell，不设置的话就是bash
+# shell zsh
+## Keybindings ##
+# C-a改为C-l
+#escape ^L^L
+# F10改标题
+bindkey -k k; title
+# F11左边的tab
+bindkey -k F1 prev
+# F12右边的tab
+bindkey -k F2 next
+
+# Set xterm's title
+#hardstatus string "screen: %t"
+#%t就是当前window的标题
+#termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+#这句都说加, 但是我这加不加都行...
+
+
+#remove some stupid / dangerous key bindings
+bind ^k
+#bind L
+bind ^\
+#make them better
+bind \\ quit
+bind K kill
+bind I login on
+bind O login off
+bind } history
+
+## Windows opening by default
+##screen -t "BASH" 1
+##screen -t "MPD" 2 ncmpc --config=/home/esquiso/.config/mpd/ncmpc
+##screen -t "NEWS" 0 tsocks newsbeuter
+screen -t "MUTT" 0 tsocks mutt
+screen -t "IRC"  1 irssi
+screen -t "BASH" 2 bash

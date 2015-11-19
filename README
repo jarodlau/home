@@ -1,0 +1,34 @@
+# vim:set et ft=conf fdm=marker sw=4 sts=4 ts=4 nopaste :
+
+#我的/HOME目录配置文件 
+#
+#当改变了文件可以先
+#
+#(git 同步命令)
+$git init
+$git commit -a -m "发生的事情"
+#
+#
+#然后链接github服务器
+$git remote add origin git@github.com:jarodlau/home.git
+$git push -u origin master
+#
+#以后当你修改了文件就可以直接先察看你修改了那些文件
+$git status
+#然后你就可以直接做个标记，然后上传了
+$git commit -a -m "你想要的commit"
+$git push
+#这样就可以直接上传到github上了
+#
+#当你发现某个文件(比如.viminfo)
+#我没有把他放在.gitignore中，所以，这个文件也被版本控制，
+$git rm --cached .viminfo
+#就可以把这个文件的版本控制取消
+
+Archlinux 字体美化+配置  
+
+1，安装字体：
+pacman -S ttf-dejavu
+yaourt -S wqy-microhei
+2，安装补丁：
+yaourt -S cairo-ubuntu libxft-ubuntu freetype2-ubuntu fontconfig-ubuntu
