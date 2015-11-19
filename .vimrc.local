@@ -1,0 +1,25 @@
+" 去掉输入错误的提示音
+set noeb
+
+" 设置文件编码
+set encoding=utf-8
+set termencoding=utf-8
+" 设置文件编码
+set fileencoding=utf-8
+" 设置文件编码检测类型及支持格式
+set fileencodings=utf-8,usc-bom,gb18030,gbk,gb2312,cp936
+
+
+" 指定菜单语言乱码
+set langmenu=zh_CN.UTF-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" 解决gvim中提示框乱码
+language message zh_CN.UTF-8
+
+" make tags by ctags
+nmap    <silent>    <F6>     <Esc>:!ctags -R *<CR>
+imap    <silent>    <F6>     <Esc>:w<CR>:!ctags -R *<CR>
+
+let g:airline_powerline_fonts=1
